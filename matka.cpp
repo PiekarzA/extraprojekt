@@ -1,45 +1,67 @@
+#include <iostream>
 #include <ctime>
 
-#include "matka.h"
+srand(time(NULL));
+int limitX  = 100;
+int limitY = 100;
 
-void MATKA::init()
-{
-	srand(time(NULL));
-	corX = rand()%limitX;
-	corY = rand()%limitY;
-	return;
+class Facet {
+public:
+	int x,y;
+	Facet();
+	move();
 }
 
-void MATKA::move()
-{
-	if (!alive)
-		return;
-		
-	srand(time(NULL));
-	
-	corX += rand()%3 -1;
-	corY += rand()%3 -1;
-	
-	if (corX < 0)
-		corX = 0;
-	if (corX >= limitX)
-		corX = limitX-1;
-	if (corY < 0)
-		corY = 0;
-	if (corY >= limitY)
-		corY = limitY-1;
-	
-	return;
+Facet::Facet(){
+	x = rand()%limitX;
+	y = rand()%limitY;
+
+	if (x < 0) x = 0;
+	if (x >= limitX) x = limitX-1;
+	if (y < 0) y = 0;
+	if (y >= limitY) y = limitY-1;
 }
 
-bool MATKA::ret_alive()
-{
-	return alive;
+Facet::move(){
+	x += rand()%3 -1;
+	y += rand()%3 -1;
+
+	if (x < 0) x = 0;
+	if (x >= limitX) x = limitX-1;
+	if (y < 0) y = 0;
+	if (y >= limitY) y = limitY-1;
 }
 
-void MATKA::set_alive(bool arg)
-{
-	alive = arg;
-	return;
+
+
+
+class Laska {
+public:
+	int x,y;
+	Laska();
 }
 
+Laska::Laska(){
+	x = rand()%limitX;
+	y = rand()%limitY;
+
+	if (x < 0) x = 0;
+	if (x >= limitX) x = limitX-1;
+	if (y < 0) y = 0;
+	if (y >= limitY) y = limitY-1;
+}
+
+Laska::move(){
+	x += rand()%3 -1;
+	y += rand()%3 -1;
+
+	if (x < 0) x = 0;
+	if (x >= limitX) x = limitX-1;
+	if (y < 0) y = 0;
+	if (y >= limitY) y = limitY-1;
+}
+
+int main() {
+	//yo
+
+}
