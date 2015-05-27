@@ -1,7 +1,8 @@
 #include <iostream>
 #include <ctime>
 
-srand(time(NULL));
+using namespace std;
+
 int limitX  = 100;
 int limitY = 100;
 
@@ -10,10 +11,10 @@ public:
 	int x,y;
 	Facet();
 	void move();
-	int** ustalPozycje(int ekran[][]):
-}
+};
 
 Facet::Facet(){
+    srand(time(NULL));
 	x = rand()%limitX;
 	y = rand()%limitY;
 
@@ -23,7 +24,8 @@ Facet::Facet(){
 	if (y >= limitY) y = limitY-1;
 }
 
-Facet::move(){
+void Facet::move(){
+    srand(time(NULL));
 	x += rand()%3 -1;
 	y += rand()%3 -1;
 
@@ -31,10 +33,6 @@ Facet::move(){
 	if (x >= limitX) x = limitX-1;
 	if (y < 0) y = 0;
 	if (y >= limitY) y = limitY-1;
-}
-
-Facet::ustalPozycje(int ekran [][]){
-    ekran[x][y] = 1;
 }
 
 
@@ -44,10 +42,10 @@ public:
 	int x,y;
 	Laska();
 	void move();
-	int** ustalPozycje(int ekran[][]);
-}
+};
 
 Laska::Laska(){
+    srand(time(NULL));
 	x = rand()%limitX;
 	y = rand()%limitY;
 
@@ -57,7 +55,8 @@ Laska::Laska(){
 	if (y >= limitY) y = limitY-1;
 }
 
-Laska::move(){
+void Laska::move(){
+    srand(time(NULL));
 	x += rand()%3 -1;
 	y += rand()%3 -1;
 
@@ -67,9 +66,6 @@ Laska::move(){
 	if (y >= limitY) y = limitY-1;
 }
 
-Laska::ustalPozycje(int ekran [][]){
-    ekran[x][y] = 1;
-}
 
 int main() {
     int ekran[limitX][limitY];
@@ -91,12 +87,12 @@ int main() {
     while(x<100){
         x++;
         for(int i = 0;i<4;i++){
-            faceci[i].move()
-            faceci[i].ustalPozycje();
+            faceci[i].move();
+            ekran[faceci[i].x][faceci[i].y] = 1;
         }
         for(int i = 0;i<4;i++){
             laski[i].move();
-            laski[i].ustalPozycje();
+            ekran[laski[i].x][laski[i].y] = 1;
         }
         for(int i = 0;i<limitX;i++){
             for(int j = 0;j<limitY;j++){
