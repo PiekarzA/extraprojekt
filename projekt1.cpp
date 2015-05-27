@@ -62,6 +62,15 @@ Laska::move(){
 }
 
 int main() {
-	//yo
+    int ekran[limitX][limitY];
+	for(int i = 0;i<limitX;i++){
+		for(int j = 0;j<limitY;j++){
+			ekran[i][j] = 0;
+		}
+	}
+
+
+
+}
 
 }
