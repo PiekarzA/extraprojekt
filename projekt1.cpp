@@ -9,7 +9,8 @@ class Facet {
 public:
 	int x,y;
 	Facet();
-	move();
+	void move();
+	int** ustalPozycje(int ekran[][]):
 }
 
 Facet::Facet(){
@@ -32,6 +33,9 @@ Facet::move(){
 	if (y >= limitY) y = limitY-1;
 }
 
+Facet::ustalPozycje(int ekran [][]){
+    ekran[x][y] = 1;
+}
 
 
 
@@ -39,6 +43,8 @@ class Laska {
 public:
 	int x,y;
 	Laska();
+	void move();
+	int** ustalPozycje(int ekran[][]);
 }
 
 Laska::Laska(){
@@ -61,6 +67,10 @@ Laska::move(){
 	if (y >= limitY) y = limitY-1;
 }
 
+Laska::ustalPozycje(int ekran [][]){
+    ekran[x][y] = 1;
+}
+
 int main() {
     int ekran[limitX][limitY];
 	for(int i = 0;i<limitX;i++){
@@ -68,8 +78,41 @@ int main() {
 			ekran[i][j] = 0;
 		}
 	}
+    Facet* faceci = new Facet[5];
+    for(int i = 0;i<4;i++){
+        faceci[i] = Facet();
+    }
+    Laska* laski = new Laska[5];
+    for(int i = 0;i<4;i++){
+        laski[i] = Laska();
+    }
 
-
+    int x = 0;
+    while(x<100){
+        x++;
+        for(int i = 0;i<4;i++){
+            faceci[i].move()
+            faceci[i].ustalPozycje();
+        }
+        for(int i = 0;i<4;i++){
+            laski[i].move();
+            laski[i].ustalPozycje();
+        }
+        for(int i = 0;i<limitX;i++){
+            for(int j = 0;j<limitY;j++){
+                switch(ekran[i][j]){
+                    case 0:
+                        cout << " ";
+                        break;
+                    case 1:
+                        cout << "x";
+                        break;
+                    case 2:
+                        cout << "x";
+                        break;
+            }
+        }
+    }
 
 }
 
