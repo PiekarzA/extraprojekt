@@ -40,6 +40,6 @@ bool MATKA::ret_alive()
 void MATKA::set_alive(bool arg)
 {
 	alive = arg;
-	
+	return;
 }
 
